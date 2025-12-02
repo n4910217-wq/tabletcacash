@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { DayEntry, DayStatus } from './types';
 import { SvetaView } from './components/SvetaView';
 import { AdminView } from './components/AdminView';
-import { Pill, ShieldCheck, X, BarChart3, CalendarDays, TriangleAlert } from 'lucide-react';
+import { Pill, ShieldCheck, X, BarChart3, CalendarDays, AlertTriangle } from 'lucide-react';
 
 // PRODUCTION MODE: Dec 2025 - March 2026
 const START_DATE = new Date(2025, 11, 2); // Dec 2, 2025
@@ -350,7 +350,7 @@ export default function App() {
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
              <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl text-center">
                  <div className="mx-auto w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mb-4 text-rose-500">
-                     <TriangleAlert size={32} />
+                     <AlertTriangle size={32} />
                  </div>
                  <h3 className="text-xl font-bold text-slate-800 mb-2">
                      Упс, пропущено дней: {missedAlert.count}
