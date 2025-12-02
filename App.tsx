@@ -30,6 +30,24 @@ export default function App() {
   // Missed Days Alert State
   const [missedAlert, setMissedAlert] = useState<{ count: number; penalty: number } | null>(null);
 
+  // Initialize Telegram WebApp
+  useEffect(() => {
+    // Check if running inside Telegram
+    const tg = (window as any).Telegram?.WebApp;
+    if (tg) {
+      tg.ready();
+      tg.expand(); // Requests full screen height
+      
+      // Optional: Set header color to match app
+      try {
+        tg.setHeaderColor('#ffffff'); 
+        tg.setBackgroundColor('#f8fafc');
+      } catch (e) {
+        console.log('Theme params not supported');
+      }
+    }
+  }, []);
+
   // Generate the full list of days based on configuration
   const generateAllDays = useCallback(() => {
     const generatedDays: DayEntry[] = [];
